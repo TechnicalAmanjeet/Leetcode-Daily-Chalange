@@ -1,18 +1,20 @@
+
 public class P_2278_PercentageOfALetterInString {
-    String s = "foobar";
-    Char letter = 'o';
+    public static void main(String[] args) {
+        String s = "foobar";
+        Character letter = 'o';
 
-    SolutionP_2278 solution = new SolutionP_2278();
+        SolutionP_2278 solution = new SolutionP_2278();
 
-    System.out.println(solution.percentageLetter(
-            s = s,
-            letter = letter
-            ));
+        System.out.println(solution.percentageLetter(
+                s = s,
+                letter = letter
+        ));
+    }
 }
 
 class SolutionP_2278 {
     public int percentageLetter(String s, char letter) {
-        public int percentageLetter(String s, char letter) {
             int count = 0;
 
             for (int i = 0; i < s.length(); i++) {
@@ -20,6 +22,5 @@ class SolutionP_2278 {
             }
 
             return (count*100)/s.length();
-        }
     }
 }
