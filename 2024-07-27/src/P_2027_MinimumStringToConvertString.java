@@ -23,3 +23,21 @@ class Solution_P_2027 {
         return totalMoves;
     }
 }
+
+class Solution_P_2027_1 {
+    public int minimumMoves(String s) {
+        char[] chars = s.toCharArray();
+        int totalMoves = 0, index = 0;
+
+        while (index < s.length()) {
+            if (chars[index] == 'X') {
+                ++totalMoves;
+                index += 3;
+            } else {
+                ++index;
+            }
+        }
+
+        return totalMoves;
+    }
+}
