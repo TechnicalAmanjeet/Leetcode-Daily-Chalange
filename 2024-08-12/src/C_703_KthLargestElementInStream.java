@@ -26,7 +26,6 @@ class KthLargest {
 
         list = new ArrayList<Integer>(nums.length);
 
-
         for (int number: nums) {
             list.add(number);
         }
@@ -35,10 +34,26 @@ class KthLargest {
     }
 
     public int add(int val) {
-        this.list.add(val);
-
-        Collections.sort(this.list);
+        this.list.add(getMiddleIndexOfSortedArray(val), val);
 
         return this.list.get(this.list.size() - this.k);
+    }
+
+    private int getMiddleIndexOfSortedArray(int number) {
+        int leftIndex = 0, rightIndex = list.size() - 1;
+
+        while(leftIndex <= rightIndex) {
+            int middleIndex = (leftIndex + rightIndex) / 2;
+
+            if (list.get(middleIndex) == number) {
+                return middleIndex;
+            } else if (list.get(middleIndex) < number) {
+                leftIndex = middleIndex + 1;
+            } else if (list.get(middleIndex) > number) {
+                rightIndex = middleIndex - 1;
+            }
+        }
+
+        return leftIndex;
     }
 }
